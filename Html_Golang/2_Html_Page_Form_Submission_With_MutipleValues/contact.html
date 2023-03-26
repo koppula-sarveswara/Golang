@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<style>
+		label {
+			display: block;
+			margin-top: 10px;
+		}
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>Contact Us</h1>
+	<form action="/contact" method="post" onsubmit="return showFormData()">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone" required>
+
+		<label for="subject">Subject:</label>
+		<input type="text" id="subject" name="subject" required>
+
+		<label for="message">Message:</label>
+		<textarea id="message" name="message" required></textarea>
+
+		<input type="submit" value="Send">
+	</form>
+
+	<table id="form-data" style="display: none;">
+		<tr>
+			<th>Name</th>
+			<td id="name-data"></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td id="email-data"></td>
+		</tr>
+		<tr>
+			<th>Phone Number</th>
+			<td id="phone-data"></td>
+		</tr>
+		<tr>
+			<th>Subject</th>
+			<td id="subject-data"></td>
+		</tr>
+		<tr>
+			<th>Message</th>
+			<td id="message-data"></td>
+		</tr>
+	</table>
+
+	<script>
+		function showFormData() {
+			// Get the form data
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var phone = document.getElementById("phone").value;
+			var subject = document.getElementById("subject").value;
+			var message = document.getElementById("message").value;
+
+			// Display the form data in the table
+			document.getElementById("name-data").innerHTML = name;
+			document.getElementById("email-data").innerHTML = email;
+			document.getElementById("phone-data").innerHTML = phone;
+			document.getElementById("subject-data").innerHTML = subject;
+			document.getElementById("message-data").innerHTML = message;
+
+			// Show the table and hide the form
+			document.getElementById("form-data").style.display = "table";
+			document.getElementsByTagName("form")[0].style.display = "none";
+
+			// Prevent the form from submitting
+			return false;
+		}
+	</script>
+</body>
+</html>

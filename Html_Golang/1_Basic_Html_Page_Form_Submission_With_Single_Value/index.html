@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting App</title>
+</head>
+<body>
+    <form action="/greet" method="post" onsubmit="return validateForm()">
+        <label for="name">Enter your name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            var nameField = document.getElementById("name");
+            var name = nameField.value.trim();
+
+            if (name.length == 0) {
+                alert("Please enter your name.");
+                nameField.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
